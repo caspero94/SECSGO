@@ -5,19 +5,16 @@ from dateutil.relativedelta import *
 from binance.client import Client
 client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='com')
 
-dStart = datetime.now()
-nEnd = dStart + relativedelta(years=-1)
-
-
-def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m',nEnd=(dStart + relativedelta(years=-1)),dStart=datetime.now()):
-
+def getklineshistorial(p_symbol="BTCUSDT",p_interval='5m'):
+    dStart = datetime.now()
+    nEnd = dStart + relativedelta(years=-1)
     while nEnd < dStart:
         nDate = dStart + relativedelta(days=-1)
         dateStart = date.strftime(dStart,"%d %b, %Y")
         nextEnd = date.strftime(nDate,"%d %b, %Y")
         dStart = dStart + relativedelta(days=-1)
         print(nextEnd+" - "+dateStart)
-        frame = pd.DataFrame(client.get_klines(symbol=p_symbol, interval=p_interval, limit=p_limit,startTime=nextEnd,endTime=dateStart),
+        frame = pd.DataFrame(client.get_klines(symbol=p_symbol, interval=p_interval,startTime=nextEnd,endTime=dateStart),
                 columns = ['Open_time','Open','High','Low','Close','Volume','Close_time',
                 'Quote_asset_volume','Number_of_trades','Taker_buy_base_asset_volume','Taker_buy_quote_asset_volume','Can_be_ignored'])
         frame = frame.iloc[:,:11]
