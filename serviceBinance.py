@@ -10,7 +10,7 @@ except:
         print("DB NAME REPEAT")
 # REVISAR HISTORIAL
 
-ticker = functionsBinance.getklineshistorical(coin,tFrame)
+ticker = functionsBinance.getklineshistorial(coin,tFrame)
 print(ticker)
 try:
         functionsDynamo.create_item(coin,tFrame,str(ticker["Open_time"][0]),ticker["Open"][0],ticker["High"][0],ticker["Low"][0],ticker["Close"][0],ticker["Volume"][0])
