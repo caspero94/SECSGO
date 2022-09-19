@@ -4,6 +4,7 @@ import pandas as pd
 from datetime import *
 from dateutil.relativedelta import *
 from binance.client import Client
+import time
 client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='com')
 
 def getklineshistorial(p_symbol="BTCUSDT",p_interval='5m'):
