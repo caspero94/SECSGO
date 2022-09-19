@@ -24,7 +24,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='5m'):
         print(frame)
         for x in frame.index:
             functionsDynamo.create_item(p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
-            print("INSERTADO: "+coin,tFrame,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
+            print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
             time.sleep(5)
     return frame
 
