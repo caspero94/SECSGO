@@ -14,7 +14,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='5m'):
         nextEnd = date.strftime(nDate,"%d %b, %Y")
         dStart = dStart + relativedelta(days=-1)
         print(nextEnd+" - "+dateStart)
-        frame = pd.DataFrame(client.get_klines(symbol=p_symbol, interval=p_interval,startTime=nextEnd,endTime=dateStart),
+        frame = pd.DataFrame(client.get_klines(symbol=p_symbol, interval=p_interval,nextEnd, dateStart),
                 columns = ['Open_time','Open','High','Low','Close','Volume','Close_time',
                 'Quote_asset_volume','Number_of_trades','Taker_buy_base_asset_volume','Taker_buy_quote_asset_volume','Can_be_ignored'])
         frame = frame.iloc[:,:11]
