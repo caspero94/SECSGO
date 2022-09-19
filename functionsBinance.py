@@ -4,7 +4,6 @@ import pandas as pd
 from datetime import *
 from dateutil.relativedelta import *
 from binance.client import Client
-import time
 client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='com')
 
 def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
@@ -26,7 +25,6 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         for x in frame.index:
             functionsDynamo.create_item(p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
-            time.sleep(1)
     return frame
 
 
