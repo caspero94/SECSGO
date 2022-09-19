@@ -25,7 +25,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='5m'):
 
 
 
-def getklines(p_symbol,p_interval='1h',p_limit=1000,timeStart=,timeEnd):
+def getklines(p_symbol,p_interval='1h',p_limit=1000):
     frame = pd.DataFrame(client.get_klines(symbol=p_symbol, interval=p_interval, limit=p_limit,startTime=timeStart,endTime=timeEnd),
             columns = ['Open_time','Open','High','Low','Close','Volume','Close_time',
             'Quote_asset_volume','Number_of_trades','Taker_buy_base_asset_volume','Taker_buy_quote_asset_volume','Can_be_ignored'])
