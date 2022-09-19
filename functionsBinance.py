@@ -9,7 +9,7 @@ client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='c
 def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     print("REVISANDO HISTORIAL")
     dStart = datetime.now()
-    nEnd = dStart + relativedelta(days=-1)
+    nEnd = dStart + relativedelta(days=-1722)
     while nEnd < dStart:
         nDate = dStart + relativedelta(days=-1)
         dateStart = date.strftime(dStart,"%d %b, %Y")
