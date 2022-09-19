@@ -2,7 +2,7 @@ import functionsBinance
 import functionsDynamo
 import time
 coin = "BTCUSDT"
-tFrame = "1m"
+tFrame = "5m"
 # CREATE TABLE IF NO EXITS
 try:
         functionsDynamo.create_table(coin)
