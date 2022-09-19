@@ -8,6 +8,7 @@ import time
 client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='com')
 
 def getklineshistorial(p_symbol="BTCUSDT",p_interval='5m'):
+    print("REVISANDO HISTORIAL")
     dStart = datetime.now()
     nEnd = dStart + relativedelta(days=-2)
     while nEnd < dStart:
@@ -22,7 +23,6 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='5m'):
         frame = frame.iloc[:,:11]
         frame.Open_time = pd.to_datetime(frame.Open_time, unit='ms')
         frame.Close_time = pd.to_datetime(frame.Close_time, unit='ms')
-        print(frame)
         for x in frame.index:
             functionsDynamo.create_item(p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
