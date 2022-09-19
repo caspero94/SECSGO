@@ -21,6 +21,10 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='5m'):
         frame.Open_time = pd.to_datetime(frame.Open_time, unit='ms')
         frame.Close_time = pd.to_datetime(frame.Close_time, unit='ms')
         print(frame)
+        for x in frame.index:
+            functionsDynamo.create_item(p_symbol,p_interval,str(ticker["Open_time"][x]),ticker["Open"][x],ticker["High"][x],ticker["Low"][x],ticker["Close"][x],ticker["Volume"][x])
+            print("INSERTADO: "+coin,tFrame,str(ticker["Open_time"][x]),ticker["Open"][x],ticker["High"][x],ticker["Low"][x],ticker["Close"][x],ticker["Volume"][x])
+            time.sleep(5)
     return frame
 
 
