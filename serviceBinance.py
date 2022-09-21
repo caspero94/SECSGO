@@ -4,7 +4,7 @@ import time
 coin = "BTCUSDT"
 tFrame = "30m"
 print("------------------------------------------------") 
-print("---- INICIANDO RECOLECTOR DE "+coin+" EN "+tFrame+" -----")
+print("---- INICIANDO RECOLECTOR DE "+coin+" EN "+tFrame+" ----")
 print("------------------------------------------------") 
 # CREAR TABLA Y REVISAR HISTORIAL
 ticker = functionsBinance.getklineshistorial(coin,tFrame)
