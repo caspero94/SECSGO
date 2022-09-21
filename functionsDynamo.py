@@ -52,3 +52,18 @@ def get_reg(TABLE_NAME):
     rege = (reg['Item'])
     print("Registro recuperado con fecha: "+rege['Open'])
     return rege['Open']
+def create_multiple(coin):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table(coin)
+    with table.batch_writer() as batch:
+            for x in frame.index:
+                content = {
+                    'Timeframe', p_interval,
+                    'OpenTime', str(frame["Open_time"][x]),
+                    'Open',frame["Open"][x],
+                    'High',frame["High"][x],
+                    'Low',frame["Low"][x],
+                    'Close',frame["Close"][x],
+                    'Volume',frame["Volume"][x]
+            }
+            batch.put_item(Item=content)
