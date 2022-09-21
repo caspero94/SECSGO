@@ -23,7 +23,9 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     dateStart = date.strftime(dStart,"%d %b, %Y")
     
     
-    # OBTENER REG SI EXITE SINO CREARLO    
+    # OBTENER REG SI EXITE SINO CREARLO  
+    print("----- REVISANDO HISTORIAL -----")
+    
     try:
         reg = functionsDynamo.get_reg(p_symbol+p_interval)
         dStart = datetime.strptime(reg,"%d %b, %Y")
@@ -31,7 +33,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
         print("Registro creado")  
         
-    print("REVISANDO HISTORIAL")
+    
     
     
     while nEnd < dStart:
@@ -54,7 +56,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])'''
         functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
         print("Registro actualizado "+nextEnd+" - "+dateStart)
-        time.sleep(1)
+        time.sleep(2)
     return frame
 
 
