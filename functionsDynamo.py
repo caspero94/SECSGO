@@ -42,8 +42,9 @@ def create_item(coin,tFrame,openTime,open,high,low,close,volume):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(coin)
     table.put_item(Item=item1)
-def get_reg():
+def get_reg(TABLE_NAME):
     reg = table.get_item(
+        TableName=TABLE_NAME,
         Key={'TimeFrame':'REGISTRO',
                 'OpenTime':'BASE'}
         )
