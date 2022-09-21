@@ -10,7 +10,7 @@ client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='c
 def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     import time
     # CREAR TABLA SI NO EXITE
-    print("--------------------- REVISANDO TABLA ----------------------") 
+    print("----------------- REVISANDO TABLA ------------------") 
     try:
         functionsDynamo.create_table(p_symbol+p_interval)
         print("No encontrada, creando tabla nueva")
@@ -18,15 +18,15 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     except:
         print("Tabla "+(p_symbol+p_interval)+" encontrada con exito")
         
-    print("------------------------------------------------------------")    
+    print("----------------------------------------------------")     
     dStart = datetime.now()
     nEnd = dStart + relativedelta(days=-2000)
     dateStart = date.strftime(dStart,"%d %b, %Y")
     
     
     # OBTENER REG SI EXITE SINO CREARLO  
-    print("------------------- REVISANDO HISTORIAL --------------------")
-    print("------------------------------------------------------------")    
+    print("--------------- REVISANDO HISTORIAL ----------------")
+    print("----------------------------------------------------")    
     try:
         reg = functionsDynamo.get_reg(p_symbol+p_interval)
         dStart = datetime.strptime(reg,"%d %b, %Y")
@@ -34,8 +34,8 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
         print("No hay historial previo, se procede a crear registro")  
         
-    print("------------------------------------------------------------")   
-    print("------------------- OBTENIENDO HISTORIAL -------------------")
+    print("----------------------------------------------------")   
+    print("--------------- OBTENIENDO HISTORIAL ---------------")
     
     while nEnd < dStart:
         nDate = dStart + relativedelta(days=-1)
@@ -59,7 +59,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         print("Registro actualizado "+nextEnd+" - "+dateStart)
         time.sleep(2)
     return frame
-    print("------------------------------------------------------------") 
+    print("----------------------------------------------------")  
 
 
 def getklines(p_symbol,p_interval='1h',p_limit=1000):
