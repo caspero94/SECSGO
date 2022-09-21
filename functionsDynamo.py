@@ -66,4 +66,4 @@ def create_multiple(coin,frame,p_interval):
                     'Close':frame["Close"][x],
                     'Volume':frame["Volume"][x]
                     }
-                 batch.put_item(Item=content)
+                batch.put_item(Item=content)
