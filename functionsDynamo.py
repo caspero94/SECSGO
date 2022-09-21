@@ -50,7 +50,7 @@ def get_reg(TABLE_NAME):
         Key={'Timeframe':'REGISTRO',
                 'OpenTime':'BASE'}
         )
-    reg = pd.DataFrame(reg)
-    print(reg)
+    reg = pd.DataFrame(reg['Item'])
+    print(reg[1])
     print("Registro recuperado")
     return reg
