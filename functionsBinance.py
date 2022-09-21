@@ -25,7 +25,6 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     # OBTENER REG SI EXITE SINO CREARLO    
     #try:
     reg = functionsDynamo.get_reg(p_symbol+p_interval)
-    print(reg)
     print("Registro recuperado")
     #except:
     functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
