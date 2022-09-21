@@ -52,6 +52,6 @@ def get_reg(TABLE_NAME):
         )
     rege = (reg['Item'])
     #reges = pd.DataFrame(rege)
-    print(rege)
+    print(rege(2))
     print("Registro recuperado")
     return reg
