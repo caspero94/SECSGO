@@ -14,8 +14,8 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     print("------------------------------------------------")   
     try:
         functionsDynamo.create_table(p_symbol+p_interval)
-        print("Tabla no encontrada, se ha creado nueva tabla")
         time.sleep(10)
+        print("Tabla no encontrada, se ha creado nueva tabla")
     except:
         print("Tabla "+(p_symbol+p_interval)+" encontrada con exito")
         
