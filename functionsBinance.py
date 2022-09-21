@@ -39,7 +39,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         dateStart = date.strftime(dStart,"%d %b, %Y")
         nextEnd = date.strftime(nDate,"%d %b, %Y")
         dStart = dStart + relativedelta(days=-1)
-        print(nextEnd+" - "+dateStart)
+        
         frame = pd.DataFrame(client.get_historical_klines(p_symbol, p_interval,nextEnd,dateStart),
                 columns = ['Open_time','Open','High','Low','Close','Volume','Close_time',
                 'Quote_asset_volume','Number_of_trades','Taker_buy_base_asset_volume','Taker_buy_quote_asset_volume','Can_be_ignored'])
@@ -53,7 +53,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
             functionsDynamo.create_item((p_symbol+p_interval),p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])'''
         functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
-        print("Registro actualizado")  
+        print("Registro actualizado "+nextEnd+" - "+dateStart) 
     return frame
 
 
