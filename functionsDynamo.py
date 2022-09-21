@@ -49,4 +49,5 @@ def get_reg(TABLE_NAME):
         Key={'TimeFrame':'REGISTRO',
                 'OpenTime':'BASE'}
         )
+    print(reg['Item'])
     return reg
