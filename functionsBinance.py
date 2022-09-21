@@ -31,10 +31,10 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         dStart = datetime.strptime(reg,"%d %b, %Y")
     except:
         functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
-        print("Registro creado")  
+        print("No hay historial previo, se procede a crear registro")  
         
     
-    
+    print("----- OBTENIENDO HISTORIAL -----")
     
     while nEnd < dStart:
         nDate = dStart + relativedelta(days=-1)
