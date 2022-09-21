@@ -1,6 +1,7 @@
 import functionsDynamo
 import os
 import pandas as pd
+import time
 from datetime import *
 from dateutil.relativedelta import *
 from binance.client import Client
@@ -15,7 +16,8 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         print("Usando tabla ya creada")
     # OBTENER REG SI EXITE SINO CREARLO    
     try:
-        functionsDynamo.create_table(p_symbol+p_interval)
+        functionsDynamo.get_reg()
+        print(reg)
         print("Registro recuperado")
     except:
         dStart = datetime.now()
