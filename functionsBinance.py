@@ -46,7 +46,6 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         frame = frame.iloc[:,:11]
         frame.Open_time = pd.to_datetime(frame.Open_time, unit='ms')
         frame.Close_time = pd.to_datetime(frame.Close_time, unit='ms')
-        table = dynamodb.Table((p_symbol+p_interval))
         
         functionsDynamo.create_multiple(p_symbol+p_interval)
         
