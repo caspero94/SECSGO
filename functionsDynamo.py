@@ -58,12 +58,12 @@ def create_multiple(coin,frame,p_interval):
     with table.batch_writer() as batch:
             for x in frame.index:
                 content = {
-                    'Timeframe', p_interval,
-                    'OpenTime', str(frame["Open_time"][x]),
-                    'Open',frame["Open"][x],
-                    'High',frame["High"][x],
-                    'Low',frame["Low"][x],
-                    'Close',frame["Close"][x],
-                    'Volume',frame["Volume"][x]
+                    'Timeframe': p_interval,
+                    'OpenTime': str(frame["Open_time"][x]),
+                    'Open':frame["Open"][x],
+                    'High':frame["High"][x],
+                    'Low':frame["Low"][x],
+                    'Close':frame["Close"][x],
+                    'Volume':frame["Volume"][x]
             }
             batch.put_item(Item=content)
