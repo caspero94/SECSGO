@@ -2,7 +2,7 @@ import functionsBinance
 import functionsDynamo
 import time
 coin = "BTCUSDT"
-tFrame = "15m"
+tFrame = "1h"
 
 # CREAR TABLA Y REVISAR HISTORIAL
 ticker = functionsBinance.getklineshistorial(coin,tFrame)
