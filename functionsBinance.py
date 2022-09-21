@@ -29,7 +29,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         print("Registro recuperado")
     except:'''
     
-    functionsDynamo.create_item("REGISTRO","BASE",dateStart,0,0,0,0,0)
+    functionsDynamo.create_item("REGISTRO","BASE",dateStart,"open","high","low","close","volume")
     print("Registro creado")
     exit()    
         
