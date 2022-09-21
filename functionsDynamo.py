@@ -50,5 +50,5 @@ def get_reg(TABLE_NAME):
                 'OpenTime':'BASE'}
         )
     rege = (reg['Item'])
-    print("Registro recuperado"+rege['Open'])
+    print("Registro recuperado con fecha: "+rege['Open'])
     return rege['Open']
