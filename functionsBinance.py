@@ -1,7 +1,7 @@
 import functionsDynamo
 import os
 import pandas as pd
-import time
+import time as time
 from datetime import *
 from dateutil.relativedelta import *
 from binance.client import Client
