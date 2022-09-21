@@ -43,9 +43,6 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
             functionsDynamo.create_item(p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
         
-        regName = ("reg"+p_symbol+p_interval+".csv")
-        ulti = dStart
-        ulti.to_csv(regName)
     return frame
 
 
