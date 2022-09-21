@@ -3,12 +3,8 @@ import functionsDynamo
 import time
 coin = "BTCUSDT"
 tFrame = "1m"
-# CREATE TABLE IF NO EXITS
-try:
-        functionsDynamo.create_table(coin)
-except:
-        print("DB NAME REPEAT")
-# REVISAR HISTORIAL
+
+# CREAR TABLA Y REVISAR HISTORIAL
 ticker = functionsBinance.getklineshistorial(coin,tFrame)
 time.sleep(30)
 
