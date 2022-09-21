@@ -33,7 +33,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         
     print("REVISANDO HISTORIAL")
     
-
+    reg = dStart
     while nEnd < dStart:
         nDate = dStart + relativedelta(days=-1)
         dateStart = date.strftime(dStart,"%d %b, %Y")
