@@ -1,13 +1,14 @@
 import functionsDynamo
 import os
 import pandas as pd
-import time as time
+
 from datetime import *
 from dateutil.relativedelta import *
 from binance.client import Client
 client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='com')
 
 def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
+    import time
     # CREAR TABLA SI NO EXITE
     try:
         functionsDynamo.create_table(p_symbol+p_interval)
@@ -25,7 +26,6 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     # OBTENER REG SI EXITE SINO CREARLO    
     try:
         reg = functionsDynamo.get_reg(p_symbol+p_interval)
-        print(reg)
         dStart = datetime.strptime(reg,"%d %b, %Y")
     except:
         functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
