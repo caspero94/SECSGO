@@ -52,7 +52,7 @@ def get_reg(TABLE_NAME):
     rege = (reg['Item'])
     print("Registro recuperado con fecha: "+rege['Open'])
     return rege['Open']
-def create_multiple(coin):
+def create_multiple(coin,frame):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(coin)
     with table.batch_writer() as batch:
