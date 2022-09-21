@@ -46,7 +46,7 @@ def get_reg(TABLE_NAME):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(TABLE_NAME)
     reg = table.get_item(
-        Key={'TimeFrame':'REGISTRO',
+        Key={'Timeframe':'REGISTRO',
                 'OpenTime':'BASE'}
         )
     print(reg['Item'])
