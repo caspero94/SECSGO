@@ -50,7 +50,7 @@ def get_reg(TABLE_NAME):
                 'OpenTime':'BASE'}
         )
     rege = (reg['Item'])
-    print("Registro recuperado con fecha: "+rege['Open'])
+    print("Historial recuperado con fecha: "+rege['Open'])
     return rege['Open']
 def create_multiple(coin,frame,p_interval):
     dynamodb = boto3.resource('dynamodb')
