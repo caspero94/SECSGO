@@ -17,7 +17,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         time.sleep(10)
         print("--- Tabla no encontrada, creada nueva tabla ---")
     except:
-        print("---- Tabla "+(p_symbol+p_interval)+" encontrada con exito ----")
+        print("---- Tabla "+(p_symbol+p_interval)+" encontrada con exito -----")
         
        
     dStart = datetime.now()
