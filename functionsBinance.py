@@ -46,6 +46,20 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         frame = frame.iloc[:,:11]
         frame.Open_time = pd.to_datetime(frame.Open_time, unit='ms')
         frame.Close_time = pd.to_datetime(frame.Close_time, unit='ms')
+        table = dynamodb.Table((p_symbol+p_interval))
+        
+        with table.batch_writer() as batch:
+            for x in frame.index:
+                content = {
+                    'Timeframe', p_interval,
+                    'OpenTime', str(frame["Open_time"][x]),
+                    'Open',frame["Open"][x],
+                    'High',frame["High"][x],
+                    'Low',frame["Low"][x],
+                    'Close',frame["Close"][x],
+                    'Volume',frame["Volume"][x]
+            }
+            batch.put_item(Item=content)
         for x in frame.index:
             functionsDynamo.create_item((p_symbol+p_interval),p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
