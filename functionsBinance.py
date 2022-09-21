@@ -10,7 +10,8 @@ client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='c
 def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     import time
     # CREAR TABLA SI NO EXITE
-    print("----------------- REVISANDO TABLA ------------------") 
+    print("----------------- REVISANDO TABLA ------------------")
+    print("----------------------------------------------------")  
     try:
         functionsDynamo.create_table(p_symbol+p_interval)
         print("No encontrada, creando tabla nueva")
@@ -18,13 +19,14 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     except:
         print("Tabla "+(p_symbol+p_interval)+" encontrada con exito")
         
-    print("----------------------------------------------------")     
+       
     dStart = datetime.now()
     nEnd = dStart + relativedelta(days=-2000)
     dateStart = date.strftime(dStart,"%d %b, %Y")
     
     
     # OBTENER REG SI EXITE SINO CREARLO  
+    print("----------------------------------------------------") 
     print("--------------- REVISANDO HISTORIAL ----------------")
     print("----------------------------------------------------")    
     try:
@@ -36,6 +38,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         
     print("----------------------------------------------------")   
     print("--------------- OBTENIENDO HISTORIAL ---------------")
+    print("----------------------------------------------------") 
     
     while nEnd < dStart:
         nDate = dStart + relativedelta(days=-1)
