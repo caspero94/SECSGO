@@ -7,9 +7,26 @@ from binance.client import Client
 client = Client(os.environ['apiKeyBinance'], os.environ['apiSecBinance'], tld='com')
 
 def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
+    # CREAR TABLA SI NO EXITE
+    try:
+        functionsDynamo.create_table(p_symbol+p_interval)
+        print("Creando tabla nueva")
+    except:
+        print("Usando tabla ya creada")
+    # OBTENER REG SI EXITE SINO CREARLO    
+    try:
+        functionsDynamo.create_table(p_symbol+p_interval)
+        print("Registro recuperado")
+    except:
+        dStart = datetime.now()
+        functionsDynamo.create_item("REGISTRO","BASE",dStart)
+        print("Registro creado")
+    exit()    
+        
     print("REVISANDO HISTORIAL")
-    dStart = datetime.now()
-    nEnd = dStart + relativedelta(days=-1722)
+    
+    nEnd = dStart + relativedelta(days=-2000)
+    if registroRecovery = pd.read_csv(registroName)
     while nEnd < dStart:
         nDate = dStart + relativedelta(days=-1)
         dateStart = date.strftime(dStart,"%d %b, %Y")
@@ -25,6 +42,10 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         for x in frame.index:
             functionsDynamo.create_item(p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
+        
+        regName = ("reg"+p_symbol+p_interval+".csv")
+        ulti = dStart
+        ulti.to_csv(regName)
     return frame
 
 
