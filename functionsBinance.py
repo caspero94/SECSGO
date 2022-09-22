@@ -73,8 +73,8 @@ def getklines(p_symbol,p_interval='1h',p_limit=1000):
     frame.Open_time = pd.to_datetime(frame.Open_time, unit='ms')
     frame.Close_time = pd.to_datetime(frame.Close_time, unit='ms')
     try:
-        functionsDynamo.create_item(coin,tFrame,str(ticker["Open_time"][0]),ticker["Open"][0],ticker["High"][0],ticker["Low"][0],ticker["Close"][0],ticker["Volume"][0])
-        print("- ACTUALIZANDO: "+coin,tFrame,str(ticker["Open_time"][0]),ticker["Open"][0],ticker["High"][0],ticker["Low"][0],ticker["Close"][0],ticker["Volume"][0]+" -")
+        functionsDynamo.create_item(coin,tFrame,str(frame["Open_time"][0]),frame["Open"][0],frame["High"][0],frame["Low"][0],frame["Close"][0],frame["Volume"][0])
+        print("- ACTUALIZANDO: "+coin,tFrame,str(frame["Open_time"][0]),frame["Open"][0],frame["High"][0],frame["Low"][0],frame["Close"][0],frame["Volume"][0]+" -")
     except:
         print("------------ ERROR INSERTANDO DATOS ------------")
     return frame
