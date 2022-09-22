@@ -15,5 +15,5 @@ print("------------------------------------------------")
 print("----------- ACTUALIZAR ULTIMAS VELAS -----------")
 print("------------------------------------------------") 
 while True:
-        ticker = functionsBinance.getklines(coin,tFrame,2)
+        ticker = functionsBinance.getklines(coin,tFrame,1)
         time.sleep(5)
