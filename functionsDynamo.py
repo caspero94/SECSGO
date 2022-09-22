@@ -71,3 +71,4 @@ def get_tables():
     dynamodb = boto3.resource('dynamodb')
     tables = list(dynamodb.tables.all())
     print(tables)
+    return tables
