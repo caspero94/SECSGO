@@ -2,7 +2,7 @@ import functionsBinance
 import functionsDynamo
 import time
 coin = "BTCUSDT"
-tFrame = "12h"
+tFrame = "6h"
 print("------------------------------------------------") 
 print("---- INICIANDO RECOLECTOR DE "+coin+" EN "+tFrame+" ----")
 print("------------------------------------------------") 
