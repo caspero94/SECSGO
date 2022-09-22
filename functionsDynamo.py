@@ -69,6 +69,7 @@ def create_multiple(coin,frame,p_interval):
                 batch.put_item(Item=content)
 def get_tables():
     dynamodb = boto3.resource('dynamodb')
-    tables = dynamodb.tables.all()
-    print(list(tables(0)))
+    tables = list(dynamodb.tables.all())
+    tables = pd.DataFrame (products_list)
+    print(tables)
     return tables
