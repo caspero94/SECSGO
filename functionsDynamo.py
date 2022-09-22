@@ -70,5 +70,5 @@ def create_multiple(coin,frame,p_interval):
 def get_tables():
     dynamodb = boto3.resource('dynamodb')
     tables = dynamodb.tables.all()
-    print([tables][1])
+    print([tables][0])
     return tables
