@@ -4,6 +4,14 @@ import time
 coin = "BTCUSDT"
 tFrame = "6h"
 print("------------------------------------------------") 
+print("----------- RECOLECTOR SECSGO BINANCE ----------")
+print("------------------------------------------------") 
+print("---------- INGRESA ACTIVO SELECIONADO ----------")
+coin = input()
+print("--------- INGRESA TIMEFRAME SELECIONADO --------")
+tFrame = input()
+
+print("------------------------------------------------") 
 print("---- INICIANDO RECOLECTOR DE "+coin+" EN "+tFrame+" ----")
 print("------------------------------------------------") 
 # CREAR TABLA Y REVISAR HISTORIAL
