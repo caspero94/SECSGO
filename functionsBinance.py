@@ -19,10 +19,10 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
     except:
         print("---- Tabla "+(p_symbol+p_interval)+" encontrada con exito -----")
         
-    nEnd = datetime.now()  
-    dStart = nEnd + relativedelta(days=-2000)
+       
+    dStart = datetime.now()
+    nEnd = dStart + relativedelta(days=-2000)
     dateStart = date.strftime(dStart,"%d %b, %Y")
-    dateEnd = date.strftime(nEnd,"%d %b, %Y")
     
     
     # OBTENER REG SI EXITE SINO CREARLO  
@@ -33,7 +33,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         reg = functionsDynamo.get_reg(p_symbol+p_interval)
         dStart = datetime.strptime(reg,"%d %b, %Y")
     except:
-        functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateEnd,dateStart,dateEnd,dateStart,dateEnd)
+        functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
         print("--- No hay historial previo, registro creado ---")  
         
     print("------------------------------------------------")    
@@ -46,7 +46,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         nextEnd = date.strftime(nDate,"%d %b, %Y")
         dStart = dStart + relativedelta(days=-1)
         
-        frame = pd.DataFrame(client.get_historical_klines(p_symbol, p_interval,dateStart,nextEnd),
+        frame = pd.DataFrame(client.get_historical_klines(p_symbol, p_interval,nextEnd,dateStart),
                 columns = ['Open_time','Open','High','Low','Close','Volume','Close_time',
                 'Quote_asset_volume','Number_of_trades','Taker_buy_base_asset_volume','Taker_buy_quote_asset_volume','Can_be_ignored'])
         frame = frame.iloc[:,:11]
@@ -58,7 +58,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         '''for x in frame.index:
             functionsDynamo.create_item((p_symbol+p_interval),p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])'''
-        functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateEnd,dateStart,dateEnd,dateStart,dateEnd)
+        functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,dateStart,dateStart,dateStart,dateStart)
         print("Registro actualizado "+nextEnd+" - "+dateStart)
         time.sleep(0)
     return frame
