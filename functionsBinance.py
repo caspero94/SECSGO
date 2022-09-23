@@ -21,7 +21,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
         
        
     dStart = datetime.now()
-    nEnd = dStart + relativedelta(days=-2000)
+    nEnd = datetime.strptime("10 Aug, 2017","%d %b, %Y")
     dateStart = date.strftime(dStart,"%d %b, %Y")
     
     
