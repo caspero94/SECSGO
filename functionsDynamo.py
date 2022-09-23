@@ -70,9 +70,12 @@ def create_multiple(coin,frame,p_interval):
 def get_tables():
     import pandas as pd
     dynamodb = boto3.resource('dynamodb')
-    tables = list(dynamodb.tables.all())
-    
+    tables = list(sum(dynamodb.tables.all(),()))
+    print(tables)
     tables = pd.DataFrame (tables)
     #tables = [table.replace('dynamodb.Table','') for table in tables]
     print(tables)
+    #list_activos = list(sum(list_activos,()))
+    #converted_list = [x.upper() for x in list_activos]
+    #converted_list = list(map(lambda x: x.replace('m1', ''), converted_list))
     return tables
