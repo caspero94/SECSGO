@@ -72,9 +72,9 @@ def get_tables():
     dynamodb = boto3.resource('dynamodb')
     tables = list(dynamodb.tables.all())
     print(tables)
-    tables = pd.DataFrame (tables)
+    #tables = pd.DataFrame (tables)
     #tables = [table.replace('dynamodb.Table','') for table in tables]
-    print(tables)
+    #print(tables)
     converted_list = [x.upper() for x in tables]
     converted_list = list(map(lambda x: x.replace('m1', ''), converted_list))
     print(converted_list)
