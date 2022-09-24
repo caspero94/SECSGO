@@ -74,7 +74,7 @@ def get_tables():
     lista = ["ACTIVOS", "lal453"]
     for x in tables:
         y = str(x).replace("dynamodb.Table(name='","")
-        y = str(x).replace("')","")
+        y = str(y).replace("')","")
         print(y)
         return lista.append(y)
     print(lista)
