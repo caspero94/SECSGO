@@ -63,7 +63,7 @@ data_activo = pd.DataFrame(functionsDynamo.get_chart())
 data_activo = data_activo.drop(0)
 fig = go.Figure()
 
-fig.add_trace(go.Candlestick(x=data_activo[2], open=data_activo[3], high=data_activo[4], low=data_activo[5], close=data_activo[6]))
+fig.add_trace(go.Candlestick(x=data_activo["OpenTime"], open=data_activo["Open"], high=data_activo["High"], low=data_activo["Low"], close=data_activo["Close"]))
 #fig.add_trace(go.Histogram(x=data_activo[7]))
 fig.update_layout(
     #xaxis_title='Tiempo',
