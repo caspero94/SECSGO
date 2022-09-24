@@ -75,14 +75,12 @@ def get_tables():
     for x in tables:
         x = str(x).replace("dynamodb.Table(name='","")
         x = str(x).replace("')","")
-        print("PRINT x "+x)
+        print(x)
         lista.append(x)
     #return lista.append(y)
     print(lista)
     #tables = pd.DataFrame (tables)
-    #tables = [table.replace('dynamodb.Table','') for table in tables]
-    #print(tables)
-    #converted_list = [x.upper() for x in tables]
-    #converted_list = list(map(lambda x: x.replace('m1', ''), tables))
-    #print(converted_list)
+    converted_list = [x.upper() for x in lista]
+    converted_list = list(map(lambda x: x.replace('m1', ''), lista))
+    print(converted_list)
     return tables
