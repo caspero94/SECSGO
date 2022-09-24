@@ -71,8 +71,8 @@ def get_tables():
     import pandas as pd
     dynamodb = boto3.resource('dynamodb')
     tables = list(dynamodb.tables.all())
-    print(tables)
     for x in tables:
+        x = x.replace("dynamodb.Table","")
         print(x)
     #tables = pd.DataFrame (tables)
     #tables = [table.replace('dynamodb.Table','') for table in tables]
