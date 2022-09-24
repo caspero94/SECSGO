@@ -77,10 +77,4 @@ def get_tables():
         x = str(x).replace("')","")
         print(x)
         lista.append(x)
-    #return lista.append(y)
-    print(lista)
-    #tables = pd.DataFrame (tables)
-    converted_list = [x.upper() for x in lista]
-    converted_list = list(map(lambda x: x.replace('m1', ''), lista))
-    print(converted_list)
-    return tables
+    return lista
