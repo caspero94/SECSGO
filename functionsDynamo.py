@@ -75,8 +75,8 @@ def get_tables():
     for x in tables:
         x = str(x).replace("dynamodb.Table(name='","")
         x = str(x).replace("')","")
-        lista = lista.append(str(x))
-    print(lista)
+        listo = lista.append(str(x))
+    print(listo)
     #tables = pd.DataFrame (tables)
     #tables = [table.replace('dynamodb.Table','') for table in tables]
     #print(tables)
