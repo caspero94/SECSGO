@@ -75,6 +75,5 @@ def get_tables():
     for x in tables:
         x = str(x).replace("dynamodb.Table(name='","")
         x = str(x).replace("')","")
-        print(x)
         lista.append(x)
     return lista
