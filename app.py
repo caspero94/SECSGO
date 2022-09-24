@@ -59,9 +59,28 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 activos = functionsDynamo.get_tables()
 filtro_activo = st.selectbox("ACTIVOS",options=activos)
-datachart = pd.DataFrame(functionsDynamo.get_chart())
-datachart = datachart.drop(0)
-print(datachart)
+data_activo = pd.DataFrame(functionsDynamo.get_chart())
+data_activo = data_activo.drop(0)
+fig = go.Figure()
+
+fig.add_trace(go.Candlestick(x=data_activo[2], open=data_activo[3], high=data_activo[4], low=data_activo[5], close=data_activo[6]))
+#fig.add_trace(go.Histogram(x=data_activo[7]))
+fig.update_layout(
+    #xaxis_title='Tiempo',
+    #yaxis_title='Precio',
+
+    height = 750,
+    margin=dict(l=0, r=0, t=0, b=0,pad=0),
+    xaxis_rangeslider_visible=False)
+fig.update_yaxes(automargin='left+top+right',ticklabelposition="inside")
+#fig.update_xaxes(automargin='left+right')
+configs = dict({'modeBarButtonsToAdd':['drawline',
+                            'drawopenpath',
+                            'drawcircle',
+                            'drawrect',
+                            'eraseshape',
+                        ],'scrollZoom': True})
+st.plotly_chart(fig,use_container_width=True,config=configs)
 
 
 
