@@ -1,9 +1,11 @@
+import functionsDynamo
 import pandas as pd
 import streamlit as st
 import time
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import os
+
 st.set_page_config(
     page_title="PENI CHARTS",
     page_icon="📈",
@@ -54,4 +56,7 @@ hide_streamlit_style = """
                 }
                 </style>
                 """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+activos = functionsDynamo.get_tables()
+filtro_activo = st.selectbox("ACTIVOS",options=activos)
+
