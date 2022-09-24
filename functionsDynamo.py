@@ -71,7 +71,7 @@ def get_tables():
     import pandas as pd
     dynamodb = boto3.resource('dynamodb')
     tables = list(dynamodb.tables.all())
-    lista = ["ACTIVOS"]
+    lista = ["gino234", "nor233", "lal453"]
     for x in tables:
         x = str(x).replace("dynamodb.Table(name='","")
         x = str(x).replace("')","")
