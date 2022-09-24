@@ -71,11 +71,11 @@ def get_tables():
     import pandas as pd
     dynamodb = boto3.resource('dynamodb')
     tables = list(dynamodb.tables.all())
-    listo = ["ACTIVOS", "lal453"]
+    lista = ["ACTIVOS", "lal453"]
     for x in tables:
         x = str(x).replace("dynamodb.Table(name='","")
         x = str(x).replace("')","")
-        lista = listo.append(str(x))
+        lista = lista.append(str(x))
         print(lista)
         return lista
     print(lista)
