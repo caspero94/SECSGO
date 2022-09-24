@@ -59,6 +59,8 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 activos = functionsDynamo.get_tables()
 filtro_activo = st.selectbox("ACTIVOS",options=activos)
-datachart = functionsDynamo.get_chart()
-print(datachart)
+datachart = pd.DataFrame(functionsDynamo.get_chart())
+print(datachar)
+
+
 
