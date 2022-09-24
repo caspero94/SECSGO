@@ -77,7 +77,7 @@ def get_tables():
         x = str(x).replace("')","")
         lista.append(x)
     return lista
-def get_chart(coin=="BTCUSDT12h"):
+def get_chart(coin="BTCUSDT12h"):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(coin)
     response = table.scan()
