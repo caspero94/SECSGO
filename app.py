@@ -68,7 +68,7 @@ fin = st.date_input(
     datetime.date(2017, 8, 7))
 st.write(fin)
 print(fin)
-data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo))
+data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,ini,fin))
 #data_activo = data_activo.drop(0)
 
 
