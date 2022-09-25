@@ -66,7 +66,7 @@ ini = st.date_input(
 fin = st.date_input(
     "Hasta",
     datetime.date(2017, 8, 7))
-data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,ini,fin))
+data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,str(ini),str(fin)))
 #data_activo = data_activo.drop(0)
 
 
