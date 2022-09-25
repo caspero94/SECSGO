@@ -5,7 +5,7 @@ import time
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import os
-from datetime import datetime
+import datetime
 
 st.set_page_config(
     page_title="PENI CHARTS",
@@ -64,7 +64,7 @@ ini = st.date_input(
     "Desde",
     datetime.date(2017, 8, 6))
 fin = st.date_input(
-    "Desde",
+    "Hasta",
     datetime.date(2017, 8, 7))
 data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,ini,fin))
 #data_activo = data_activo.drop(0)
