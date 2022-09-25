@@ -60,6 +60,7 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 activos = functionsDynamo.get_tables()
 filtro_activo = st.selectbox("ACTIVOS",options=activos)
 data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo))
+time.sleep(1)
 #data_activo = data_activo.drop(0)
 fig = go.Figure()
 
