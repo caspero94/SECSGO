@@ -84,7 +84,7 @@ def get_chart(coin="BTCUSDT12h"):
     #response = table.scan()
     #response = table.query(KeyConditionExpression=Key('OpenTime').between('2017-10-01','2017-10-09'))
     response = table.scan(
-        FilterExpression=Attr('OpenTime').between('2017-10-01','2017-10-09')
+        FilterExpression=Attr('OpenTime').between('2017-10-04','2017-10-07')
     )
     data = response['Items']
     print(data)
