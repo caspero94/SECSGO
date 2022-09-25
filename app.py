@@ -62,15 +62,15 @@ activos = functionsDynamo.get_tables()
 filtro_activo = st.selectbox("ACTIVOS",options=activos)
 ini = st.date_input(
     "Desde",
-    datetime.date(2017, 8, 6))
+    datetime.date(2017, 9, 6))
 fin = st.date_input(
     "Hasta",
-    datetime.date(2017, 8, 7))
+    datetime.date(2017, 9, 7))
 
 sini = str(ini)
 sfin = str(fin)
 
-st.write(fin)
+st.write(sfin)
 
 data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,sini,sfin))
 #data_activo = data_activo.drop(0)
