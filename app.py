@@ -60,15 +60,19 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 activos = functionsDynamo.get_tables()
 filtro_activo = st.selectbox("ACTIVOS",options=activos)
-str(ini) = st.date_input(
+ini = st.date_input(
     "Desde",
     datetime.date(2017, 8, 6))
-str(fin) = st.date_input(
+fin = st.date_input(
     "Hasta",
     datetime.date(2017, 8, 7))
+
+sini = str(ini)
+sfin = str(fin)
+
 st.write(fin)
-print(fin)
-data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,ini,fin))
+
+data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,sini,sfin))
 #data_activo = data_activo.drop(0)
 
 
