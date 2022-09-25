@@ -2,7 +2,7 @@ import functionsBinance
 import functionsDynamo
 import time
 coin = "BTCUSDT"
-tFrame = "6h"
+tFrame = "1m"
 print("------------------------------------------------") 
 print("----------- RECOLECTOR SECSGO BINANCE ----------")
 print("------------------------------------------------") 
@@ -13,11 +13,11 @@ print(activos)
 print("------------------------------------------------") 
 print("---------- INGRESA ACTIVO SELECIONADO ----------")
 print("------------------------------------------------") 
-coin = input()
+#coin = input()
 print("------------------------------------------------") 
 print("--------- INGRESA TIMEFRAME SELECIONADO --------")
 print("------------------------------------------------") 
-tFrame = input()
+#tFrame = input()
 
 print("------------------------------------------------") 
 print("---- INICIANDO RECOLECTOR DE "+coin+" EN "+tFrame+" ----")
