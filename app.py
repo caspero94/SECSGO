@@ -60,10 +60,10 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 activos = functionsDynamo.get_tables()
 filtro_activo = st.selectbox("ACTIVOS",options=activos)
-ini = st.date_input(
+str(ini) = st.date_input(
     "Desde",
     datetime.date(2017, 8, 6))
-fin = st.date_input(
+str(fin) = st.date_input(
     "Hasta",
     datetime.date(2017, 8, 7))
 st.write(fin)
