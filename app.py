@@ -59,9 +59,16 @@ hide_streamlit_style = """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 activos = functionsDynamo.get_tables()
 filtro_activo = st.selectbox("ACTIVOS",options=activos)
-data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo))
-time.sleep(1)
+ini = st.date_input(
+    "Desde",
+    datetime.date(2017, 8, 6))
+fin = st.date_input(
+    "Desde",
+    datetime.date(2017, 8, 7))
+data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,ini,fin))
 #data_activo = data_activo.drop(0)
+
+
 fig = go.Figure()
 
 fig.add_trace(go.Candlestick(x=data_activo["OpenTime"], open=data_activo["Open"], high=data_activo["High"], low=data_activo["Low"], close=data_activo["Close"]))
