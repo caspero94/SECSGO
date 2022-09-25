@@ -80,6 +80,9 @@ def get_tables():
 def get_chart(coin="BTCUSDT12h"):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(coin)
-    response = table.scan()
+    #response = table.scan()
+    response = table.query(KeyConditionExpression=Key('OpenTime').between('2017-10-01','2017-10-09'))
     data = response['Items']
     return data
+
+    
