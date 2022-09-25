@@ -78,6 +78,7 @@ def get_tables():
         lista.append(x)
     return lista
 def get_chart(coin="BTCUSDT12h"):
+    from boto3.dynamodb.conditions import Key, Attr
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table(coin)
     #response = table.scan()
