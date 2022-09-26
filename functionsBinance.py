@@ -60,7 +60,7 @@ def getklineshistorial(p_symbol="BTCUSDT",p_interval='1m'):
             print("INSERTADO: "+p_symbol,p_interval,str(frame["Open_time"][x]),frame["Open"][x],frame["High"][x],frame["Low"][x],frame["Close"][x],frame["Volume"][x])'''
         functionsDynamo.create_item((p_symbol+p_interval),"REGISTRO","BASE",dateStart,nextEnd,dateStart,nextEnd,dateStart)
         print("Registro actualizado "+nextEnd+" - "+dateStart)
-        time.sleep(0)
+        time.sleep(0.5)
     return frame
     print("------------------------------------------------")   
 
