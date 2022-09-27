@@ -71,30 +71,33 @@ sini = str(ini)
 sfin = str(fin)
 
 st.write(sfin)
+st.container
+placeholder = st.empty()
 while True:
-    data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,sini,sfin)).sort_values('OpenTime')
-    #data_activo = data_activo.drop(0)
+    with placeholder.container():
+        data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,sini,sfin)).sort_values('OpenTime')
+        #data_activo = data_activo.drop(0)
 
-    fig = go.Figure()
+        fig = go.Figure()
 
-    fig.add_trace(go.Candlestick(x=data_activo["OpenTime"], open=data_activo["Open"], high=data_activo["High"], low=data_activo["Low"], close=data_activo["Close"]))
-    #fig.add_trace(go.Histogram(x=data_activo[7]))
-    fig.update_layout(
-        #xaxis_title='Tiempo',
-        #yaxis_title='Precio',
+        fig.add_trace(go.Candlestick(x=data_activo["OpenTime"], open=data_activo["Open"], high=data_activo["High"], low=data_activo["Low"], close=data_activo["Close"]))
+        #fig.add_trace(go.Histogram(x=data_activo[7]))
+        fig.update_layout(
+            #xaxis_title='Tiempo',
+            #yaxis_title='Precio',
 
-        height = 750,
-        margin=dict(l=0, r=0, t=0, b=0,pad=0),
-        xaxis_rangeslider_visible=False)
-    fig.update_yaxes(automargin='left+top+right',ticklabelposition="inside")
-    #fig.update_xaxes(automargin='left+right')
-    configs = dict({'modeBarButtonsToAdd':['drawline',
-                                'drawopenpath',
-                                'drawcircle',
-                                'drawrect',
-                                'eraseshape',
-                            ],'scrollZoom': True})
-    st.plotly_chart(fig,use_container_width=True,config=configs)
-    time.sleep(1)
+            height = 750,
+            margin=dict(l=0, r=0, t=0, b=0,pad=0),
+            xaxis_rangeslider_visible=False)
+        fig.update_yaxes(automargin='left+top+right',ticklabelposition="inside")
+        #fig.update_xaxes(automargin='left+right')
+        configs = dict({'modeBarButtonsToAdd':['drawline',
+                                    'drawopenpath',
+                                    'drawcircle',
+                                    'drawrect',
+                                    'eraseshape',
+                                ],'scrollZoom': True})
+        st.plotly_chart(fig,use_container_width=True,config=configs)
+        time.sleep(1)
 
 
