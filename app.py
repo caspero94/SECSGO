@@ -62,7 +62,7 @@ activos = functionsDynamo.get_tables()
 filtro_activo = st.selectbox("ACTIVOS",options=activos)
 ini = st.date_input(
     "Desde",
-    datetime.date(datetime.now()))
+    datetime.date(datetime.now(),%Y %m %d))
 fin = st.date_input(
     "Hasta",
     datetime.date(datetime.now()))
