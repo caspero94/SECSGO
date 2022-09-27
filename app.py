@@ -59,13 +59,20 @@ hide_streamlit_style = """
                 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 activos = functionsDynamo.get_tables()
-filtro_activo = st.selectbox("ACTIVOS",options=activos)
-ini = st.date_input(
-    "Desde",
-    datetime.date((datetime.now()+ relativedelta(days=-1))))
-fin = st.date_input(
-    "Hasta",
-    datetime.date(datetime.now()))
+col1, col2, col3 = st.columns(2)
+    with col1:
+        filtro_activo = st.selectbox("ACTIVOS",options=activos)
+    with col2:
+        ini = st.date_input(
+            "Desde",
+            datetime.date((datetime.now()+ relativedelta(days=-1))))
+    with col3:
+        fin = st.date_input(
+            "Hasta",
+            datetime.date(datetime.now()))
+
+
+
 
 sini = str(ini)
 sfin = str(fin)
