@@ -70,7 +70,6 @@ fin = st.date_input(
 sini = str(ini)
 sfin = str(fin)
 
-st.write(sfin)
 placeholder = st.empty()
 while True:
     with placeholder.container():
