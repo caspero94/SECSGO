@@ -71,7 +71,6 @@ sini = str(ini)
 sfin = str(fin)
 
 st.write(sfin)
-st.container
 placeholder = st.empty()
 while True:
     with placeholder.container():
