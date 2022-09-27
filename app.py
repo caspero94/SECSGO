@@ -67,8 +67,8 @@ fin = st.date_input(
     "Hasta",
     datetime.date(datetime.now()))
 
-sini = str(ini)
-sfin = str(fin)
+sini = (ini)
+sfin = (fin)
 
 st.write(sfin)
 
