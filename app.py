@@ -72,9 +72,8 @@ sfin = str(fin)
 
 st.write(sfin)
 
-data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,sini,sfin))
+data_activo = pd.DataFrame(functionsDynamo.get_chart(filtro_activo,sini,sfin).sort_values('OpenTime'))
 #data_activo = data_activo.drop(0)
-data_activo = data_activo.sort_values('OpenTime', inplace=True)
 
 fig = go.Figure()
 
