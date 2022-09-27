@@ -87,7 +87,7 @@ def get_chart(coin="BTCUSDT12h",ini="2017-09-01", fin="2017-09-02"):
         FilterExpression=Attr('OpenTime').between(ini,fin)
     )
     data = response['Items']
-    data = data.sort_values('OpenTime', inplace=True)
-    return data
+    date = data.sort_values('OpenTime')
+    return date
 
     
