@@ -103,6 +103,6 @@ while True:
                                     'eraseshape',
                                 ],'scrollZoom': True})
         st.plotly_chart(fig,use_container_width=True,config=configs)
-        time.sleep(1)
+        time.sleep(3)
 
 
