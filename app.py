@@ -9,7 +9,7 @@ from datetime import datetime
 from dateutil.relativedelta import *
 st.set_page_config(
     page_title="PENI CHARTS",
-    page_icon="",
+    page_icon="P",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items=None
